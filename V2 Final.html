@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MindConnect - Mental Health Support Platform connecting individuals with depression to peer support, counselors, healthcare providers, and community resources">
+    <meta name="keywords" content="mental health, depression support, peer groups, counseling, SDG 3, healthcare, community support">
+    <meta name="author" content="MindConnect Team">
+    <title>MindConnect - Mental Health Support Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">MindConnect 🧠💚</div>
+                <nav>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                        <li><a href="#" onclick="showPage('register')" class="nav-link">Register</a></li>
+                        <li><a href="#" onclick="showPage('resources')" class="nav-link">Resources</a></li>
+                        <li><a href="#" onclick="showPage('dashboard')" class="nav-link">Dashboard</a></li>
+                        <li><a href="#" onclick="showPage('support')" class="nav-link">Support</a></li>
+                        <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
+                    </ul>
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">☰</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <h1>You Are Not Alone</h1>
+                    <p>Connect with peer support groups, professional counselors, healthcare providers, and community organizations dedicated to mental health and wellbeing.</p>
+                    <a href="#" onclick="showPage('register')" class="cta-button">Get Started Today</a>
+                </div>
+            </section>
+
+            <section class="container">
+                <h2 style="text-align: center; margin: 3rem 0 2rem 0; color: var(--primary-color);">How We Support You</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>🤝 Peer Support Groups</h3>
+                        <p>Connect with others who understand your journey. Join support groups led by peers who have walked similar paths.</p>
+                        <a href="#" onclick="showPage('support')" class="btn">Find Groups</a>
+                    </div>
+                    <div class="card">
+                        <h3>🏥 Healthcare Providers</h3>
+                        <p>Access a network of mental health professionals, hospitals, and clinics in your area.</p>
+                        <a href="#" onclick="showPage('resources')" class="btn">Find Providers</a>
+                    </div>
+                    <div class="card">
+                        <h3>💬 Professional Counselors</h3>
+                        <p>Connect with licensed therapists and counselors who specialize in depression and mental health.</p>
+                        <a href="#" onclick="showPage('resources')" class="btn">Find Counselors</a>
+                    </div>
+                    <div class="card">
+                        <h3>⛪ Community Support</h3>
+                        <p>Find faith-based support through local churches and community organizations.</p>
+                        <a href="#" onclick="showPage('resources')" class="btn">Find Communities</a>
+                    </div>
+                    <div class="card">
+                        <h3>🌟 NGO Networks</h3>
+                        <p>Access resources from non-profit organizations dedicated to mental health advocacy and support.</p>
+                        <a href="#" onclick="showPage('resources')" class="btn">Explore NGOs</a>
+                    </div>
+                    <div class="card">
+                        <h3>📊 Progress Tracking</h3>
+                        <p>Monitor your mental health journey with tools to track mood, activities, and progress over time.</p>
+                        <a href="#" onclick="showPage('dashboard')" class="btn">Track Progress</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Register Page -->
+        <div id="register" class="page">
+            <div class="container">
+                <div class="form-container">
+                    <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Join MindConnect</h2>
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="age">Age *</label>
+                            <select id="age" name="age" required>
+                                <option value="">Select Age Range</option>
+                                <option value="18-25">18-25</option>
+                                <option value="26-35">26-35</option>
+                                <option value="36-45">36-45</option>
+                                <option value="46-55">46-55</option>
+                                <option value="56-65">56-65</option>
+                                <option value="65+">65+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Location (City, Country) *</label>
+                            <input type="text" id="location" name="location" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="supportTypes">What type of support are you looking for? (Check all that apply)</label>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="peerSupport" name="supportTypes" value="peer">
+                                <label for="peerSupport">Peer Support Groups</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="professionalCounseling" name="supportTypes" value="counseling">
+                                <label for="professionalCounseling">Professional Counseling</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="healthcare" name="supportTypes" value="healthcare">
+                                <label for="healthcare">Healthcare Providers</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="community" name="supportTypes" value="community">
+                                <label for="community">Community/Faith-based Support</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="ngoSupport" name="supportTypes" value="ngo">
+                                <label for="ngoSupport">NGO Resources</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="urgencyLevel">How would you describe your current need for support?</label>
+                            <select id="urgencyLevel" name="urgencyLevel">
+                                <option value="">Select urgency level</option>
+                                <option value="low">Looking for preventive support</option>
+                                <option value="moderate">Experiencing some challenges</option>
+                                <option value="high">Need support soon</option>
+                                <option value="urgent">Need immediate help</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="additionalInfo">Additional Information (Optional)</label>
+                            <textarea id="additionalInfo" name="additionalInfo" placeholder="Share anything else that might help us connect you with the right resources..."></textarea>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">I agree to the privacy policy and terms of service *</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">I would like to receive mental health resources and updates via email</label>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <span id="registerButtonText">Create Account</span>
+                            <span id="registerButtonLoader" class="loading" style="display: none;"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Page -->
+        <div id="resources" class="page">
+            <div class="container">
+                <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Mental Health Resources</h2>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>🆘 Crisis Support</h3>
+                        <p><strong>Emergency:</strong> 911 or your local emergency number</p>
+                        <p><strong>Crisis Helpline:</strong> 988 (Suicide & Crisis Lifeline)</p>
+                        <p><strong>Crisis Text Line:</strong> Text HOME to 741741</p>
+                    </div>
+                    <div class="card">
+                        <h3>📞 Immediate Help</h3>
+                        <p>If you're in immediate danger or having thoughts of self-harm, please reach out for help immediately.</p>
+                        <button class="btn btn-success" onclick="showCrisisModal()">Get Immediate Help</button>
+                    </div>
+                </div>
+
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h4>🤝 Peer Support Groups</h4>
+                        <p>Connect with others who understand your journey through facilitated peer support groups.</p>
+                        <div class="resource-meta">
+                            <span>📍 Available nationwide</span>
+                            <span>⏰ Various times available</span>
+                            <span>💰 Free</span>
+                        </div>
+                        <button class="btn" onclick="joinPeerGroup()">Join a Group</button>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4>🏥 Healthcare Providers</h4>
+                        <p>Find mental health professionals, psychiatrists, and specialized healthcare facilities in your area.</p>
+                        <div class="resource-meta">
+                            <span>📍 Location-based search</span>
+                            <span>⏰ Various availability</span>
+                            <span>💰 Insurance accepted</span>
+                        </div>
+                        <button class="btn" onclick="findHealthcare()">Find Providers</button>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4>💬 Professional Counselors</h4>
+                        <p>Licensed therapists specializing in depression, anxiety, and other mental health conditions.</p>
+                        <div class="resource-meta">
+                            <span>📍 In-person & online</span>
+                            <span>⏰ Flexible scheduling</span>
+                            <span>💰 Various pricing options</span>
+                        </div>
+                        <button class="btn" onclick="findCounselors()">Find Counselors</button>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4>⛪ Faith-Based Support</h4>
+                        <p>Churches and religious organizations offering spiritual support and community connection.</p>
+                        <div class="resource-meta">
+                            <span>📍 Community-based</span>
+                            <span>⏰ Regular meetings</span>
+                            <span>💰 Free</span>
+                        </div>
+                        <button class="btn" onclick="findFaithSupport()">Find Communities</button>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4>🌟 NGO Resources</h4>
+                        <p>Non-profit organizations dedicated to mental health advocacy, education, and support services.</p>
+                        <div class="resource-meta">
+                            <span>📍 Various locations</span>
+                            <span>⏰ Multiple programs</span>
+                            <span>💰 Free or low-cost</span>
+                        </div>
+                        <button class="btn" onclick="exploreNGOs()">Explore NGOs</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboard" class="page">
+            <div class="container">
+                <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Your Mental Health Dashboard</h2>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h4>Days Since Joining</h4>
+                        <div class="number" id="daysJoined">15</div>
+                        <p>Keep going strong! 💪</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h4>Support Connections</h4>
+                        <div class="number" id="connections">3</div>
+                        <p>Groups, counselors, resources</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h4>Check-ins This Month</h4>
+                        <div class="number" id="checkins">12</div>
+                        <p>Great consistency! ⭐</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h4>Resources Accessed</h4>
+                        <div class="number" id="resourcesUsed">8</div>
+                        <p>Exploring available help</p>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <h3>Monthly Wellness Goals</h3>
+                    <div style="margin: 1.5rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Daily Check-ins</span>
+                            <span>12/30 days</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 1.5rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Support Group Participation</span>
+                            <span>6/8 sessions</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 1.5rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Self-Care Activities</span>
+                            <span>18/20 planned</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>📝 Daily Check-in</h3>
+                        <p>How are you feeling today? Track your mood and activities.</p>
+                        <button class="btn" onclick="showCheckInModal()">Check In Today</button>
+                    </div>
+                    <div class="card">
+                        <h3>📅 Upcoming Sessions</h3>
+                        <p>Your next support group meeting is tomorrow at 7:00 PM</p>
+                        <button class="btn" onclick="viewSchedule()">View Schedule</button>
+                    </div>
+                    <div class="card">
+                        <h3>📊 Mood Trends</h3>
+                        <p>View your mood patterns and progress over time.</p>
+                        <button class="btn" onclick="viewMoodTrends()">View Trends</button>
+                    </div>
+                    <div class="card">
+                        <h3>🎯 Goals & Achievements</h3>
+                        <p>Track your mental health goals and celebrate wins.</p>
+                        <button class="btn" onclick="manageGoals()">Manage Goals</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Page -->
+        <div id="support" class="page">
+            <div class="container">
+                <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Find Support</h2>
+                
+                <div class="form-container" style="max-width: 800px;">
+                    <h3>Find Support Groups Near You</h3>
+                    <form id="supportSearchForm">
+                        <div class="form-group">
+                            <label for="searchLocation">Your Location</label>
+                            <input type="text" id="searchLocation" name="searchLocation" placeholder="City, State or ZIP code">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="supportType">Type of Support</label>
+                            <select id="supportType" name="supportType">
+                                <option value="">All types</option>
+                                <option value="peer">Peer Support Groups</option>
+                                <option value="counseling">Professional Counseling</option>
+                                <option value="healthcare">Healthcare Providers</option>
+                                <option value="faith">Faith-based Support</option>
+                                <option value="ngo">NGO Programs</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="meetingFormat">Meeting Format</label>
+                            <select id="meetingFormat" name="meetingFormat">
+                                <option value="">Any format</option>
+                                <option value="in-person">In-Person</option>
+                                <option value="online">Online</option>
+                                <option value="hybrid">Hybrid</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Search Support Options</button>
+                    </form>
+                </div>
+
+                <div id="supportResults" class="resource-list">
+                    <div class="resource-item">
+                        <h4>🤝 Zambia Mental Health Support Group</h4>
+                        <p>A peer support group for individuals experiencing depression and anxiety. Led by trained facilitators with lived experience.</p>
+                        <div class="resource-meta">
+                            <span>📍 Lusaka Community Center</span>
+                            <span>⏰ Tuesdays, 6:00 PM</span>
+                            <span>👥 8-12 members</span>
+                            <span>💰 Free</span>
+                        </div>
+                        <button class="btn" onclick="joinGroup('zambia-mental-health')">Join Group</button>
+                        <button class="btn btn-secondary" onclick="contactGroup('zambia-mental-health')">Get Info</button>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4>💬 Mindful Hearts Counseling Center</h4>
+                        <p>Professional counseling services with therapists specializing in depression, trauma, and anxiety disorders.</p>
+                        <div class="resource-meta">
+                            <span>📍 Downtown Lusaka</span>
+                            <span>⏰ Mon-Fri, 9 AM - 6 PM</span>
+                            <span>👨‍⚕️ Licensed therapists</span>
+                            <span>💰 Sliding scale fees</span>
+                        </div>
+                        <button class="btn" onclick="bookAppointment('mindful-hearts')">Book Appointment</button>
+                        <button class="btn btn-secondary" onclick="learnMore('mindful-hearts')">Learn More</button>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4>🏥 University Teaching Hospital - Mental Health Unit</h4>
+                        <p>Comprehensive mental health services including psychiatric care, counseling, and crisis intervention.</p>
+                        <div class="resource-meta">
+                            <span>📍 University Teaching Hospital</span>
+                            <span>⏰ 24/7 Emergency, Regular hours for appointments</span>
+                            <span>👨‍⚕️ Psychiatrists & social workers</span>
+                            <span>💰 Insurance accepted</span>
+                        </div>
+                        <button class="btn" onclick="contactHospital('uth-mental-health')">Contact Unit</button>
+                        <button class="btn btn-secondary" onclick="getDirections('uth-mental-health')">Get Directions</button>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4>⛪ Grace Fellowship Mental Health Ministry</h4>
+                        <p>Faith-based support combining spiritual care with mental health resources and community support.</p>
+                        <div class="resource-meta">
+                            <span>📍 Grace Fellowship Church</span>
+                            <span>⏰ Sundays after service, Thursdays 7 PM</span>
+                            <span>🙏 Faith-based approach</span>
+                            <span>💰 Free</span>
+                        </div>
+                        <button class="btn" onclick="joinMinistry('grace-fellowship')">Join Ministry</button>
+                        <button class="btn btn-secondary" onclick="contactMinistry('grace-fellowship')">Contact</button>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <h4>🌟 Mental Health Zambia (NGO)</h4>
+                        <p>National NGO providing advocacy, education, and support services for mental health awareness and care.</p>
+                        <div class="resource-meta">
+                            <span>📍 Multiple locations</span>
+                            <span>⏰ Various programs</span>
+                            <span>🎯 Advocacy & support</span>
+                            <span>💰 Free resources</span>
+                        </div>
+                        <button class="btn" onclick="explorePrograms('mental-health-zambia')">Explore Programs</button>
+                        <button class="btn btn-secondary" onclick="volunteer('mental-health-zambia')">Volunteer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">About MindConnect</h2>
+                    
+                    <div class="card" style="margin-bottom: 2rem;">
+                        <h3>Our Mission</h3>
+                        <p>MindConnect is dedicated to supporting individuals experiencing depression by connecting them with comprehensive mental health resources, peer support, and professional care. We believe that no one should face mental health challenges alone.</p>
+                    </div>
+                    
+                    <div class="card" style="margin-bottom: 2rem;">
+                        <h3>Supporting SDG 3: Good Health and Well-being</h3>
+                        <p>Our platform directly contributes to the United Nations Sustainable Development Goal 3 by:</p>
+                        <ul style="margin-left: 2rem; color: var(--text-light);">
+                            <li>Ensuring access to mental health services for all</li>
+                            <li>Reducing stigma around mental health</li>
+                            <li>Promoting mental health awareness and education</li>
+                            <li>Connecting individuals with appropriate care and support</li>
+                            <li>Building resilient communities that support mental wellness</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🤝 Community-Centered</h3>
+                            <p>We connect people with local support systems including peers, healthcare providers, and community organizations.</p>
+                        </div>
+                        <div class="card">
+                            <h3>🔒 Privacy First</h3>
+                            <p>Your mental health information is protected with the highest standards of privacy and security.</p>
+                        </div>
+                        <div class="card">
+                            <h3>🌍 Accessible</h3>
+                            <p>Free to use and designed to be accessible to all, regardless of economic status or location.</p>
+                        </div>
+                        <div class="card">
+                            <h3>📱 User-Friendly</h3>
+                            <p>Simple, intuitive design that makes finding help and tracking progress easy and stress-free.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card" style="margin-top: 2rem;">
+                        <h3>How It Works</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                            <div style="text-align: center;">
+                                <div style="background: var(--primary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-weight: bold;">1</div>
+                                <h4>Register</h4>
+                                <p style="font-size: 0.9rem;">Create your account and tell us about your support needs</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: var(--primary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-weight: bold;">2</div>
+                                <h4>Connect</h4>
+                                <p style="font-size: 0.9rem;">Find support groups, counselors, and resources in your area</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: var(--primary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-weight: bold;">3</div>
+                                <h4>Track</h4>
+                                <p style="font-size: 0.9rem;">Monitor your progress and celebrate your mental health journey</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="background: var(--primary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto; font-weight: bold;">4</div>
+                                <h4>Thrive</h4>
+                                <p style="font-size: 0.9rem;">Build resilience and maintain your mental wellness with ongoing support</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" style="margin-top: 2rem;">
+                        <h3>Contact Us</h3>
+                        <p>If you need immediate help or have questions about our platform:</p>
+                        <div style="margin-top: 1rem;">
+                            <p><strong>Crisis Support:</strong> 988 or your local emergency number</p>
+                            <p><strong>General Inquiries:</strong> info@mindconnect.org</p>
+                            <p><strong>Technical Support:</strong> support@mindconnect.org</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Crisis Support Modal -->
+    <div id="crisisModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCrisisModal()">&times;</span>
+            <h3 style="color: var(--danger-color); margin-bottom: 1rem;">🆘 Immediate Crisis Support</h3>
+            <div class="alert alert-danger">
+                <strong>If you are in immediate danger, please call emergency services (911) or go to your nearest emergency room.</strong>
+            </div>
+            <div style="margin: 1.5rem 0;">
+                <h4>24/7 Crisis Helplines:</h4>
+                <p><strong>Suicide & Crisis Lifeline:</strong> 988</p>
+                <p><strong>Crisis Text Line:</strong> Text HOME to 741741</p>
+                <p><strong>International Association for Suicide Prevention:</strong> <a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank">Find local crisis centers</a></p>
+            </div>
+            <div style="margin: 1.5rem 0;">
+                <h4>Remember:</h4>
+                <ul>
+                    <li>You are not alone</li>
+                    <li>This feeling is temporary</li>
+                    <li>Help is available</li>
+                    <li>Your life has value</li>
+                </ul>
+            </div>
+            <button class="btn btn-success" onclick="callCrisisLine()">Call Crisis Line Now</button>
+        </div>
+    </div>
+
+    <!-- Check-in Modal -->
+    <div id="checkinModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCheckinModal()">&times;</span>
+            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">📝 Daily Check-in</h3>
+            <form id="checkinForm">
+                <div class="form-group">
+                    <label for="moodRating">How are you feeling today? (1-10)</label>
+                    <input type="range" id="moodRating" name="moodRating" min="1" max="10" value="5">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-light);">
+                        <span>😢 Very Low</span>
+                        <span>😊 Great</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="activities">What activities did you do today?</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="exercise" name="activities" value="exercise">
+                        <label for="exercise">Exercise</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="socializing" name="activities" value="socializing">
+                        <label for="socializing">Socializing</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="selfcare" name="activities" value="selfcare">
+                        <label for="selfcare">Self-care</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="therapy" name="activities" value="therapy">
+                        <label for="therapy">Therapy/Counseling</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">Additional notes (optional)</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="How was your day? Any thoughts or feelings you'd like to record?"></textarea>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">Save Check-in</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#" onclick="showPage('support')">Find Support</a>
+                    <a href="#" onclick="showCrisisModal()">Crisis Support</a>
+                    <a href="#" onclick="showPage('resources')">All Resources</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <a href="#" onclick="showPage('register')">Register</a>
+                    <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+                    <a href="#" onclick="showPage('about')">About</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support SDG 3</h4>
+                    <a href="https://sdgs.un.org/goals/goal3" target="_blank">Learn about SDG 3</a>
+                    <a href="#" onclick="showPage('about')">Our Mission</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Emergency</h4>
+                    <a href="tel:911">Emergency: 911</a>
+                    <a href="tel:988">Crisis Line: 988</a>
+                    <a href="sms:741741">Text: HOME to 741741</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #555; padding-top: 1rem; margin-top: 2rem;">
+                <p>&copy; 2025 MindConnect. Supporting mental health and SDG 3: Good Health and Well-being.</p>
+                <p style="font-size: 0.9rem; color: #ccc;">If you're experiencing a mental health emergency, please contact emergency services immediately.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
